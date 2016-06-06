@@ -13,6 +13,7 @@
 #include "Cube.h"
 #include "Camera.h"
 #include "Board.h"
+#include "Snake.h"
 #include "stb_image.h"
 
 using namespace std;
@@ -26,6 +27,7 @@ using namespace std;
 	GLfloat HEIGHT = 600;
 	Camera camera = Camera(-20, -30, 0, 50, -90, 0);
 	Board playBoard;
+	Snake snake;
 
 	bool keys[255];
 
@@ -67,7 +69,7 @@ using namespace std;
 		GLfloat deltaTime = newFrameTime - frameTime;
 		frameTime = newFrameTime;
 
-		const float speed = 3;
+		const GLfloat speed = 3;
 		if (keys['a']) camera.MoveCamera(0, deltaTime*speed);
 		if (keys['d']) camera.MoveCamera(180, deltaTime*speed);
 		if (keys['w']) camera.MoveCamera(90, deltaTime*speed);
@@ -101,7 +103,8 @@ using namespace std;
 		SetupWindow();
 
 		playBoard.draw();
-		
+		snake.draw();
+
 		glFlush();
 		glutSwapBuffers();
 	}
@@ -191,6 +194,8 @@ int main(int argc, char *argv[])
 	glutPassiveMotionFunc(MouseMotionEvent);
 	glutMouseWheelFunc(MouseWheelEvent);
 	glutWarpPointer(WIDTH / 2, HEIGHT / 2);
+
+	snake = Snake(1);
 
 	glutMainLoop();
 	return 0;
