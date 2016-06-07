@@ -17,6 +17,9 @@ public:
 	Snake();
 	Snake(GLint);
 	void draw(void);
+	void Snake::move(void);
+	enum Direction { LEFT, RIGHT, UP, DOWN };
+	Direction dir = DOWN;
 private:
 	RGBColor color;
 	GLfloat size = 0;

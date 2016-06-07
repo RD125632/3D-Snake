@@ -2,8 +2,8 @@
 
 Board::Board()
 {
-	color.setRGBColor(0.1f, 0.1f, 0.2f);
-	size = 15.0f;
+	color.setRGBColor(0.1f, 0.14f, 0.1f);
+	size = 19.0f;
 }
 
 void Board::draw(void)
@@ -16,8 +16,6 @@ void Board::draw(void)
 	glVertex3f(size + posX, 0.8f, -size + posY);
 	glVertex3f(-size + posX, 0.8f, -size + posY);
 	glVertex3f(-size + posX, 0.8f, size + posY);
-
-	glColor4f(color.getRed(), color.getGreen(), color.getBlue(), 0.6f);
 
 	// BACK
 	glVertex3f(size + posX, -0.8f, size + posY);

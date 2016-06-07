@@ -182,6 +182,7 @@ int main(int argc, char *argv[])
 	glutCreateWindow("3D-Snake");
 	glutFullScreen();
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_TEXTURE_2D);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
 	cout << "->Window Created" << endl;

@@ -1,6 +1,6 @@
 #include "Snake.h"
 
-Snake::Snake()
+Snake::Snake(void)
 {
 
 }
@@ -10,7 +10,7 @@ Snake::Snake(GLint i)
 	cout << "$->Creating Snake..." << endl;
 	color.setRGBColor(0.0f, 1.0f, 1.0f);
 	posY = 0.8f;
-	texture = loadTexture("Images/eyes1.bmp");
+	texture = loadTexture("Images/eyes.bmp");
 }
 
 GLuint Snake::loadTexture(const char * imagepath)
@@ -42,7 +42,8 @@ GLuint Snake::loadTexture(const char * imagepath)
 	fread(data, 1, imageSize, file);		// Read the actual data from the file into the buffer
 	fclose(file);							// Everything is in memory now, the file can be closed
 
-											// Create one OpenGL texture
+	//
+	// Create one OpenGL texture
 	GLuint textureID;
 	glGenTextures(1, &textureID);
 
@@ -60,6 +61,7 @@ GLuint Snake::loadTexture(const char * imagepath)
 
 void Snake::draw(void)
 {
+	//glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, texture);
 	glBegin(GL_QUADS);
 	glColor4f(color.getRed(), color.getGreen(), color.getBlue(), 0.6f);
@@ -96,5 +98,9 @@ void Snake::draw(void)
 	glVertex3f(posX, headSize + posY, headSize + posZ);				//0.1.1
 
 	glEnd();
+}
+
+void Snake::move(void)
+{
 
 }
