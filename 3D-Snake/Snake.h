@@ -20,14 +20,14 @@ public:
 	void Snake::move(void);
 	enum Direction { LEFT, RIGHT, UP, DOWN };
 	Direction dir = DOWN;
+	GLfloat rotation = 45;
 private:
 	RGBColor color;
-	GLfloat size = 0;
-	GLfloat headSize = 2.0f;
+	GLfloat size = 2.0f;
 	GLfloat posX = 0;
-	GLfloat posY = 0;
+	GLfloat posY = 2.8f;
 	GLfloat posZ = 0;
-	GLuint texture;
+	GLuint textureTop, textureLeft, textureRight, textureBottom, textureFront, textureBack;
 	GLuint Snake::loadTexture(const char *);
 };
 

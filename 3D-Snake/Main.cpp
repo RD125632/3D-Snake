@@ -69,7 +69,7 @@ using namespace std;
 		GLfloat deltaTime = newFrameTime - frameTime;
 		frameTime = newFrameTime;
 
-		const GLfloat speed = 3;
+		const GLfloat speed = 10;
 		if (keys['a']) camera.MoveCamera(0, deltaTime*speed);
 		if (keys['d']) camera.MoveCamera(180, deltaTime*speed);
 		if (keys['w']) camera.MoveCamera(90, deltaTime*speed);
@@ -103,6 +103,7 @@ using namespace std;
 		SetupWindow();
 
 		playBoard.draw();
+		snake.move();
 		snake.draw();
 
 		glFlush();
@@ -125,6 +126,27 @@ using namespace std;
 		if (key == 27)
 			exit(0);
 		keys[key] = true;
+	}
+
+	void SpecialKeyEvent(int key, int x, int y)
+	{
+		std::cout << key << endl;
+		switch (key)
+		{
+		case GLUT_KEY_UP:
+			snake.dir = Snake::Direction::UP;
+			break;
+		case GLUT_KEY_DOWN:
+			snake.dir = Snake::Direction::DOWN;
+			break;
+		case GLUT_KEY_LEFT:
+			snake.dir = Snake::Direction::LEFT;
+			break;
+		case GLUT_KEY_RIGHT:
+			snake.dir = Snake::Direction::RIGHT;
+			break;
+	
+		}
 	}
 
 	void KeyEventUp(unsigned char key, int, int)
@@ -192,10 +214,12 @@ int main(int argc, char *argv[])
 	glutReshapeFunc(ReshapeWindow);
 	glutKeyboardFunc(KeyEvent);
 	glutKeyboardUpFunc(KeyEventUp);
+	glutSpecialFunc(SpecialKeyEvent);
 	glutPassiveMotionFunc(MouseMotionEvent);
 	glutMouseWheelFunc(MouseWheelEvent);
 	glutWarpPointer(WIDTH / 2, HEIGHT / 2);
 
+	playBoard = Board(1);
 	snake = Snake(1);
 
 	glutMainLoop();
