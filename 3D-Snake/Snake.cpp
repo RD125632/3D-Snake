@@ -9,12 +9,6 @@ Snake::Snake(GLint i)
 {
 	cout << "$->Creating Snake..." << endl;
 	color.setRGBColor(1.0f, 0.2f, 0.2f);
-	textureTop = loadTexture("Images/melon-top.bmp");
-	textureLeft = loadTexture("Images/melon-left.bmp");
-	textureRight = loadTexture("Images/melon-right.bmp");
-	textureBottom = loadTexture("Images/melon-bot.bmp");
-	textureFront = loadTexture("Images/melon-front.bmp");
-	textureBack = loadTexture("Images/melon-back.bmp");
 }
 
 GLuint Snake::loadTexture(const char * imagepath)
@@ -116,19 +110,19 @@ void Snake::move(void)
 	switch (dir)
 	{
 	case Direction::UP :
-		posX -= 0.001f;
+		posX -= 0.01f;
 		rotation = 90;
 		break;
 	case Direction::DOWN :
-		posX += 0.001f;
+		posX += 0.01f;
 		rotation = -90;
 		break;
 	case Direction::LEFT :
-		posZ += 0.001f;
+		posZ += 0.01f;
 		rotation = 180;
 		break;
 	case Direction::RIGHT:
-		posZ -= 0.001f;
+		posZ -= 0.01f;
 		rotation = 0;
 		break;
 	}

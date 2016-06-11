@@ -14,6 +14,7 @@
 #include "Camera.h"
 #include "Board.h"
 #include "Snake.h"
+#include "Book.h"
 #include "stb_image.h"
 
 using namespace std;
@@ -26,8 +27,15 @@ using namespace std;
 	GLfloat WIDTH = 800;
 	GLfloat HEIGHT = 600;
 	Camera camera = Camera(-20, -30, 0, 50, -90, 0);
+	GLfloat  lightPos[] = { 1.0f, 1.0f, 75.0f, 1.0f };
+	GLfloat  specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	GLfloat  specref[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	GLfloat  ambientLight[] = { 3.0f, 3.0f, 3.0f, 3.0f };
+	GLfloat  spotDir[] = { 0.0f, 0.0f, -1.0f };
 	Board playBoard;
 	Snake snake;
+	Snake randomCube;
+	Book book;
 
 	bool keys[255];
 
@@ -80,6 +88,20 @@ using namespace std;
 
 	void SetupWindow(void)
 	{
+		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientLight);
+
+		// The light is composed of just diffuse and specular components
+		glLightfv(GL_LIGHT0, GL_DIFFUSE, ambientLight);
+		glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
+		glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
+
+		// Specific spot effects
+		// Cut off angle is 60 degrees
+		glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 20.0f);
+
+		// Fairly shiny spot
+		glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 20.0f);
+
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
 
@@ -103,8 +125,14 @@ using namespace std;
 		SetupWindow();
 
 		playBoard.draw();
+
+		randomCube.draw();
+
+		book.model->draw();
+
 		snake.move();
 		snake.draw();
+
 
 		glFlush();
 		glutSwapBuffers();
@@ -208,6 +236,8 @@ int main(int argc, char *argv[])
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
 	cout << "->Window Created" << endl;
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
 
 	glutIdleFunc(Idle);
 	glutDisplayFunc(PaintComponent);
@@ -221,6 +251,8 @@ int main(int argc, char *argv[])
 
 	playBoard = Board(1);
 	snake = Snake(1);
+	randomCube = Snake(2);
+	book = Book(1);
 
 	glutMainLoop();
 	return 0;
