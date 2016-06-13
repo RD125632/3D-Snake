@@ -1,0 +1,8 @@
+﻿  Main.cpp
+c:\users\richard\documents\visual studio 2015\projects\3dsnake\3dsnake\main.cpp(107): warning C4244: 'argument': conversion from 'GLfloat' to 'GLsizei', possible loss of data
+c:\users\richard\documents\visual studio 2015\projects\3dsnake\3dsnake\main.cpp(149): warning C4244: '=': conversion from 'GLint' to 'GLfloat', possible loss of data
+c:\users\richard\documents\visual studio 2015\projects\3dsnake\3dsnake\main.cpp(150): warning C4244: '=': conversion from 'GLint' to 'GLfloat', possible loss of data
+c:\users\richard\documents\visual studio 2015\projects\3dsnake\3dsnake\main.cpp(210): warning C4244: 'argument': conversion from 'GLfloat' to 'int', possible loss of data
+c:\users\richard\documents\visual studio 2015\projects\3dsnake\3dsnake\main.cpp(237): warning C4244: 'argument': conversion from 'GLfloat' to 'int', possible loss of data
+c:\users\richard\documents\visual studio 2015\projects\3dsnake\3dsnake\main.cpp(256): warning C4244: 'argument': conversion from 'GLfloat' to 'int', possible loss of data
+  3DSnake.vcxproj -> c:\users\richard\documents\visual studio 2015\Projects\3DSnake\Debug\3DSnake.exe
