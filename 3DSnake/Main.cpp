@@ -14,7 +14,6 @@
 #include "Camera.h"
 #include "Board.h"
 #include "Snake.h"
-#include "Book.h"
 
 using namespace std;
 
@@ -30,12 +29,12 @@ GLfloat  lightPos[] = { 1.0f, 1.0f, 75.0f, 1.0f };
 GLfloat  specular[] = { 0.5f, 0.5f, 0.5f, 1.0f };
 GLfloat  specref[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 GLfloat  ambientLight[] = { 0.5f, 0.5f, 0.5f, 1.0f };
+GLfloat  diffLight[] = { 0.5f, 0.5f, 0.5f, 1.0f };
 GLfloat  spotDir[] = { 0.0f, 0.0f, -1.0f };
 Board playBoard;
 Snake snake;
 Snake randomCube;
-Book book;
-
+ObjModel* model;
 bool keys[255];
 
 //History trackers
@@ -90,7 +89,7 @@ void SetupWindow(void)
 	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientLight);
 
 	// The light is composed of just diffuse and specular components
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, ambientLight);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffLight);
 	glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
 	glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
 
@@ -103,7 +102,7 @@ void SetupWindow(void)
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
-
+	
 	glViewport(0, 0, WIDTH, HEIGHT);
 
 	glMatrixMode(GL_PROJECTION);
@@ -126,18 +125,22 @@ void PaintComponent(void)
 	playBoard.draw();
 	randomCube.draw();
 
-	glPushMatrix();
-	glTranslatef(5.0f, 3.0f, 0.0f);
-
-	//NO TEXTURE
-	book.model->draw();
-
-	glPopMatrix();
+	glDisable(GL_LIGHTING);
 
 	glPushMatrix();
 		snake.move();
 		snake.draw();
 		randomCube.draw();
+	glPopMatrix();
+
+	glEnable(GL_LIGHTING);
+
+	glPushMatrix();
+	glTranslatef(5.0f, 3.0f, 0.0f);
+
+	//NO TEXTURE
+	model->draw();
+
 	glPopMatrix();
 
 	glFlush();
@@ -239,8 +242,6 @@ int main(int argc, char *argv[])
 	glutFullScreen();
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_TEXTURE_2D);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glEnable(GL_BLEND);
 	cout << "->Window Created" << endl;
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
@@ -258,6 +259,8 @@ int main(int argc, char *argv[])
 	playBoard = Board(1);
 	snake = Snake(1);
 	randomCube = Snake(2);
+	model = new ObjModel("book/spellbook.obj");
+
 
 	glutMainLoop();
 	return 0;

@@ -25,7 +25,7 @@ private:
 	RGBColor color;
 	GLfloat size = 2.0f;
 	GLfloat posX = 0;
-	GLfloat posY = 2.8f;
+	GLfloat posY = 0.9f;
 	GLfloat posZ = 0;
 	GLuint textureTop, textureLeft, textureRight, textureBottom, textureFront, textureBack;
 	GLuint Snake::loadTexture(const char *);

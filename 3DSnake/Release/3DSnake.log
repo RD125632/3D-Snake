@@ -1,14 +1,14 @@
 ﻿  Main.cpp
-Main.cpp(107): warning C4244: 'argument': conversion from 'GLfloat' to 'GLsizei', possible loss of data
-Main.cpp(149): warning C4244: '=': conversion from 'GLint' to 'GLfloat', possible loss of data
-Main.cpp(150): warning C4244: '=': conversion from 'GLint' to 'GLfloat', possible loss of data
-Main.cpp(210): warning C4244: 'argument': conversion from 'GLfloat' to 'int', possible loss of data
-Main.cpp(237): warning C4244: 'argument': conversion from 'GLfloat' to 'int', possible loss of data
-Main.cpp(256): warning C4244: 'argument': conversion from 'GLfloat' to 'int', possible loss of data
+Main.cpp(106): warning C4244: 'argument': conversion from 'GLfloat' to 'GLsizei', possible loss of data
+Main.cpp(152): warning C4244: '=': conversion from 'GLint' to 'GLfloat', possible loss of data
+Main.cpp(153): warning C4244: '=': conversion from 'GLint' to 'GLfloat', possible loss of data
+Main.cpp(213): warning C4244: 'argument': conversion from 'GLfloat' to 'int', possible loss of data
+Main.cpp(240): warning C4244: 'argument': conversion from 'GLfloat' to 'int', possible loss of data
+Main.cpp(257): warning C4244: 'argument': conversion from 'GLfloat' to 'int', possible loss of data
   Snake.cpp
   Generating code
-  2 of 956 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  0 of 953 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    10 functions had inline decision re-evaluated but remain unchanged
+    15 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  3DSnake.vcxproj -> c:\users\richard\documents\visual studio 2015\Projects\3DSnake\Release\3DSnake.exe
+  3DSnake.vcxproj -> C:\Users\Richard\documents\visual studio 2015\Projects\3DSnake\Release\3DSnake.exe

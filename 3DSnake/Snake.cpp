@@ -8,7 +8,7 @@ Snake::Snake(void)
 Snake::Snake(GLint i)
 {
 	cout << "$->Creating Snake..." << endl;
-	color.setRGBColor(1.0f, 0.2f, 0.2f);
+	color.setRGBColor(1.0f, 0.0f, 0.0f);
 }
 
 GLuint Snake::loadTexture(const char * imagepath)
@@ -66,6 +66,7 @@ void Snake::draw(void)
 	glRotatef(rotation, 0, 1, 0);
 	glColor4f(0.1f, 0.1f, 0.1f, 1.0f);
 
+
 	//Back face
 	glBegin(GL_QUADS);
 	glVertex3f(size / 2, size / 2, size / 2);
@@ -110,19 +111,32 @@ void Snake::move(void)
 	switch (dir)
 	{
 	case Direction::UP:
-		posX -= 0.001f;
+		if(posX > -19.0f)
+		{
+			posX -= 0.001f;
+		}
 		rotation = 90;
 		break;
 	case Direction::DOWN:
-		posX += 0.001f;
+		if (posX < 19.0f)
+		{
+			posX += 0.001f;
+		}
+		
 		rotation = -90;
 		break;
 	case Direction::LEFT:
-		posZ += 0.001f;
+		if (posZ < 19.0f)
+		{
+			posZ += 0.001f;
+		}
 		rotation = 180;
 		break;
 	case Direction::RIGHT:
-		posZ -= 0.001f;
+		if (posZ > -19.0f)
+		{
+			posZ -= 0.001f;
+		}
 		rotation = 0;
 		break;
 	}
