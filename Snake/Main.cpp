@@ -125,30 +125,28 @@ void UpdateLogic(void)
 			cin >> scoreName;
 
 			score.SaveScore(scoreName, snake.snakeSize);
-			bool flag = false;
-			while (!flag)
-			{
-				cout << "Type N for a new game or E to EXIT" << endl;
-				cin >> scoreName;
-
-				if (scoreName == "N")
-				{
-					camera = Camera(-20, -50, 0, 70, -90, 0);
-					snake.reset();
-					food.newFood();
-					score.loadHighScore();
-					flag = true;
-				}
-				else if (scoreName == "E")
-				{
-					glutLeaveMainLoop();
-				}
-			}
-			glutSetWindow(1);
 		}
-		else
+		bool flag = false;
+		while (!flag)
 		{
-			glutLeaveMainLoop();
+			string s;
+			cout << "Type N for a new game or E to EXIT" << endl;
+			cin >> s;
+
+			if (s == "N")
+			{
+				camera = Camera(-20, -50, 0, 70, -90, 0);
+				snake.reset();
+				food.newFood();
+				score.loadHighScore();
+				flag = true;
+			}
+
+			if (s == "E")
+			{
+				flag = true;
+				glutLeaveMainLoop();
+			}
 		}
 	}
 }
