@@ -1,0 +1,13 @@
+# Blender MTL File: 'cheese.blend'
+# Material Count: 1
+
+newmtl Material
+Ns 58.823529
+Ka 1.000000 1.000000 1.000000
+Kd 0.695385 0.480321 0.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd cheese.png
