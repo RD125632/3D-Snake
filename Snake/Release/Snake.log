@@ -1,0 +1,30 @@
+﻿  Board.cpp
+  Camera.cpp
+  Food.cpp
+c:\users\richard\documents\visual studio 2015\projects\snake\snake\Position.h(30): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\richard\documents\visual studio 2015\projects\snake\snake\Position.h(37): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\users\richard\documents\visual studio 2015\projects\snake\snake\Position.h(38): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\users\richard\documents\visual studio 2015\projects\snake\snake\Position.h(27): warning C4101: 'randNumber': unreferenced local variable
+  Main.cpp
+c:\users\richard\documents\visual studio 2015\projects\snake\snake\Position.h(30): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\richard\documents\visual studio 2015\projects\snake\snake\Position.h(37): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\users\richard\documents\visual studio 2015\projects\snake\snake\Position.h(38): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\users\richard\documents\visual studio 2015\projects\snake\snake\Position.h(27): warning C4101: 'randNumber': unreferenced local variable
+Main.cpp(93): warning C4244: 'argument': conversion from 'GLfloat' to 'GLsizei', possible loss of data
+Main.cpp(139): warning C4244: '=': conversion from 'GLint' to 'GLfloat', possible loss of data
+Main.cpp(140): warning C4244: '=': conversion from 'GLint' to 'GLfloat', possible loss of data
+Main.cpp(199): warning C4244: 'argument': conversion from 'GLfloat' to 'int', possible loss of data
+Main.cpp(222): warning C4244: 'argument': conversion from 'GLfloat' to 'int', possible loss of data
+Main.cpp(234): warning C4244: 'argument': conversion from 'GLfloat' to 'int', possible loss of data
+  ObjModel.cpp
+  Snake.cpp
+c:\users\richard\documents\visual studio 2015\projects\snake\snake\Position.h(30): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\richard\documents\visual studio 2015\projects\snake\snake\Position.h(37): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\users\richard\documents\visual studio 2015\projects\snake\snake\Position.h(38): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\users\richard\documents\visual studio 2015\projects\snake\snake\Position.h(27): warning C4101: 'randNumber': unreferenced local variable
+Snake.cpp(14): warning C4018: '>=': signed/unsigned mismatch
+  Texture.cpp
+  Generating code
+  All 1036 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Snake.vcxproj -> C:\Users\Richard\Documents\Visual Studio 2015\Projects\Snake\Release\Snake.exe
