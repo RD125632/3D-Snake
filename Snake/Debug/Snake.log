@@ -1,2 +1,6 @@
-﻿  Main.cpp
+﻿  Snake.cpp
+c:\users\richard\documents\3d-snake\snake\snake.cpp(91): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\richard\documents\3d-snake\snake\snake.cpp(91): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+  Board.cpp
+  Generating Code...
   Snake.vcxproj -> C:\Users\Richard\Documents\3D-Snake\Debug\Snake.exe

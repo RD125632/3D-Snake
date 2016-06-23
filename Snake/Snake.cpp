@@ -85,11 +85,12 @@ int Snake::move(void)
 
 void Snake::draw()
 {
-	GLfloat lightPosition[] = { 0, 5, 0, 0 };
+
+	GLfloat lightPosition[] = { 5, 5, 6, 0 };
 	GLfloat lightA[] = { 0.5,0.5,0.5,1 };
-	GLfloat Ambient[] = { color.getRed(), color.getGreen(), color.getBlue() };
-	GLfloat Diffuse[] = { 0.8f, 0.8f, 0.1f, 1.0f };
-	GLfloat Specular[] = { 0.0f, 0.0f, 0.0f, 1.0f };
+	GLfloat Ambient[] = { 0.4,0,0 };
+	GLfloat Diffuse[] = { color.getRed(),  color.getGreen(), color.getBlue(), 1.0f };
+	GLfloat Specular[] = { 0.2f, 0.2f, 0.2f, 1.0f };
 	GLfloat s = 5.0f;
 
 	glLightfv(GL_LIGHT0, GL_AMBIENT, lightA);
@@ -117,40 +118,44 @@ void Snake::drawPart(Position p)
 
 	glTranslatef(p.getX(), p.getY(), p.getZ());
 
+
 	//Back face
-	glNormal3f(0.0, 1.0, 0.0);
 	glBegin(GL_QUADS);
+	glNormal3f(0.0, 0.0, -1.0);
 	glVertex3f(snakeSquareSize / 2, snakeSquareSize / 2, snakeSquareSize / 2);
 	glVertex3f(-snakeSquareSize / 2, snakeSquareSize / 2, snakeSquareSize / 2);
 	glVertex3f(-snakeSquareSize / 2, -snakeSquareSize / 2, snakeSquareSize / 2);
 	glVertex3f(snakeSquareSize / 2, -snakeSquareSize / 2, snakeSquareSize / 2);
 
 	//Left face
+	glNormal3f(-1.0, 0.0, 0.0);
 	glVertex3f(-snakeSquareSize / 2, snakeSquareSize / 2, snakeSquareSize / 2);
 	glVertex3f(-snakeSquareSize / 2, snakeSquareSize / 2, -snakeSquareSize / 2);
 	glVertex3f(-snakeSquareSize / 2, -snakeSquareSize / 2, -snakeSquareSize / 2);
 	glVertex3f(-snakeSquareSize / 2, -snakeSquareSize / 2, snakeSquareSize / 2);
 
 	//Right face
+	glNormal3f(1.0, 0.0, 0.0);
 	glVertex3f(snakeSquareSize / 2, snakeSquareSize / 2, -snakeSquareSize / 2);
 	glVertex3f(snakeSquareSize / 2, snakeSquareSize / 2, snakeSquareSize / 2);
 	glVertex3f(snakeSquareSize / 2, -snakeSquareSize / 2, snakeSquareSize / 2);
 	glVertex3f(snakeSquareSize / 2, -snakeSquareSize / 2, -snakeSquareSize / 2);
 
 	//Top face
+	glNormal3f(0.0, 1.0, 0.0);
 	glVertex3f(-snakeSquareSize / 2, snakeSquareSize / 2, -snakeSquareSize / 2);
 	glVertex3f(-snakeSquareSize / 2, snakeSquareSize / 2, snakeSquareSize / 2);
 	glVertex3f(snakeSquareSize / 2, snakeSquareSize / 2, snakeSquareSize / 2);
 	glVertex3f(snakeSquareSize / 2, snakeSquareSize / 2, -snakeSquareSize / 2);
 
 	//Front face
+	glNormal3f(0.0, 0.0, 1.0);
 	glVertex3f(snakeSquareSize / 2, -snakeSquareSize / 2, -snakeSquareSize / 2);
 	glVertex3f(snakeSquareSize / 2, snakeSquareSize / 2, -snakeSquareSize / 2);
 	glVertex3f(-snakeSquareSize / 2, snakeSquareSize / 2, -snakeSquareSize / 2);
 	glVertex3f(-snakeSquareSize / 2, -snakeSquareSize / 2, -snakeSquareSize / 2);
 	glEnd();
 	glPopMatrix();
-
 }
 
 void Snake::eat(Food & food) {
